@@ -21,9 +21,10 @@ import { ApiService } from './api/api.service';
   entryComponents: [],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(),
     AppRoutingModule,
-    AuthModule
+    AuthModule,
+    IonicModule.forRoot(),
+
   ],
   providers: [
     ApiService,
