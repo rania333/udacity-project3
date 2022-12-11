@@ -1,4 +1,4 @@
-import { NgModule , CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA} from '@angular/core';
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
 
@@ -12,7 +12,6 @@ import { MenubarComponent } from './menubar/menubar.component';
 
 import { AuthModule } from './auth/auth.module';
 import { ApiService } from './api/api.service';
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +25,13 @@ import { ApiService } from './api/api.service';
   //   IonicModule.forRoot(),
 
   // ],
-  imports:[
+  // imports:[
+  //   BrowserModule,
+  //   AppRoutingModule,
+  //   AuthModule,
+  //   IonicModule.forRoot()
+  // ],
+  imports: [
     BrowserModule,
     AppRoutingModule,
     AuthModule,
@@ -39,7 +44,5 @@ import { ApiService } from './api/api.service';
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent],
-  schemas: [
-  NO_ERRORS_SCHEMA]
 })
 export class AppModule {}
