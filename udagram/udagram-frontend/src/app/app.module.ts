@@ -12,30 +12,18 @@ import { MenubarComponent } from './menubar/menubar.component';
 
 import { AuthModule } from './auth/auth.module';
 import { ApiService } from './api/api.service';
+
 @NgModule({
   declarations: [
     AppComponent,
     MenubarComponent
   ],
   entryComponents: [],
-  // imports: [
-  //   BrowserModule,
-  //   AppRoutingModule,
-  //   AuthModule,
-  //   IonicModule.forRoot(),
-
-  // ],
-  // imports:[
-  //   BrowserModule,
-  //   AppRoutingModule,
-  //   AuthModule,
-  //   IonicModule.forRoot()
-  // ],
   imports: [
     BrowserModule,
+    IonicModule.forRoot(),
     AppRoutingModule,
-    AuthModule,
-    IonicModule.forRoot()
+    AuthModule
   ],
   providers: [
     ApiService,
@@ -43,6 +31,6 @@ import { ApiService } from './api/api.service';
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
-  bootstrap: [AppComponent],
+  bootstrap: [AppComponent]
 })
 export class AppModule {}
