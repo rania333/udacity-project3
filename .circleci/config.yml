@@ -1,45 +1,33 @@
+setup: true
 version: 2.1
 orbs:
-  node: circleci/node@4.7
-  eb: circleci/aws-elastic-beanstalk@2.0.1
-  aws-cli: circleci/aws-cli@3.1.1
+  node: circleci/node@4.1.0
+  aws-cli: circleci/aws-cli@1.3.1
 jobs:
-  frontend:
-    working_directory: ~/app/udagram-frontend
-    executor: node/default
+  build:
+    docker:
+      - image: "cimg/base:stable"
     steps:
-      - checkout:
-          path: ~/app
-      - node/install-packages:
-          app-dir: ~/app/udagram-frontend
+      - node/install
+      - checkout
+      - aws-cli/setup
       - run:
-          name: Build Frontend
-          command: npm run build
-      - aws-cli/install
+          name: Front-End Install
+          command: |
+            npm run frontend:install
       - run:
-          name: Deploy Frontend
-          command: aws s3 cp --recursive --acl public-read ./www $udacityfrontend
-  server:
-    working_directory: ~/app/udagram-api
-    executor: node/default
-    steps:
-      - checkout:
-          path: ~/app
-      - node/install-packages:
-          app-dir: ~/app/udagram-api
+          name: Back-End Install
+          command: |
+            npm run backend:install
       - run:
-          name: Build and Archive Server
-          command: |-
-            npm run build
-      - aws-cli/install
+          name: Front-End Build
+          command: |
+            npm run frontend:build
       - run:
-          name: Deploy Server
-          command: |-
-            aws s3 cp ./www/Archive.zip $S3_BUCKET_SERVER
-            aws elasticbeanstalk create-application-version --application-name $EB_APP --version-label <<pipeline.git.revision>> --source-bundle S3Bucket="$EB_BUCKET",S3Key="Archive.zip"
-            aws elasticbeanstalk update-environment --application-name $EB_APP --environment-name $EB_ENV --version-label <<pipeline.git.revision>>
-workflows:
-  build_and_deploy:
-    jobs:
-      - frontend
-      - server
+          name: Back-End Build
+          command: |
+            npm run backend:build
+      - run:
+          name: Deploy App
+          command: |
+            npm run frontend:deploy
