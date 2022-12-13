@@ -11,9 +11,9 @@
     "tsc": "npx tsc",
     "dev": "npx ts-node-dev --respawn --transpile-only ./src/server.ts",
     "prod": "npx tsc && node ./www/server.js",
-    "clean": "rm www/",
+    "clean": "rm ./www/",
     "deploy": "chmod +x bin/deploy.sh && bin/deploy.sh",
-    "build": "npm install . && npm run clean && tsc --skipLibCheck && cp rf ./src/config ./www/config && cp -R ./.elasticbeanstalk ./www/.elasticbeanstalk && cp ./.npmrc ./www/.npmrc && cp ./package.json ./www/package.json && cd ./www && zip -r Archive.zip . && cd ..",
+    "build": "npm install . && tsc --skipLibCheck && cp rf ./src/config ./www/config && cp -R ./.elasticbeanstalk ./www/.elasticbeanstalk && cp ./.npmrc ./www/.npmrc && cp ./package.json ./www/package.json && cd ./www && zip -r Archive.zip . && cd ..",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
