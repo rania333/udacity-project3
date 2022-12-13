@@ -1,3 +1,2 @@
 eb use Udacitybackend-env
 eb setenv AWS_ACCESS_KEY_ID=AKIAT26GHL5YBOTKAXCK AWS_BUCKET=udacityfrontend AWS_PROFILE=default AWS_REGION=us-east-1 AWS_SECRET_ACCESS_KEY=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 JWT_SECRET=secretkey PORT=5432 POSTGRES_DB=database-1 POSTGRES_HOST=database-1.clonfduxfz7g.us-east-1.rds.amazonaws.com POSTGRES_PASSWORD=rootpass POSTGRES_USERNAME=postgres URL=http://udacitybackend-env.eba-sxyvzg5k.us-east-1.elasticbeanstalk.com
-aws s3 cp --recursive --acl public-read ./build s3://udacityfrontend/
