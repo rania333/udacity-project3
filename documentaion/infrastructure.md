@@ -10,7 +10,7 @@ URI: `http://udacitybackend-env.eba-sxyvzg5k.us-east-1.elasticbeanstalk.com`
 
 ### EB: used as server for hosting backend api.
 
-URL: `http://udacitybackend-env.eba-sxyvzg5k.us-east-1.elasticbeanstalk.com`
+URL: `http://udacitybackend5-env.eba-gurmma9j.us-east-1.elasticbeanstalk.com/`
 
 ### S3: used as bucket for storing frontend.
 
