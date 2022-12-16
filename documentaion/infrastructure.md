@@ -14,4 +14,4 @@ URL: `http://udacitybackend5-env.eba-gurmma9j.us-east-1.elasticbeanstalk.com/`
 
 ### S3: used as bucket for storing frontend.
 
-URL: `http://udacityfrontend.s3-website-us-east-1.amazonaws.com/home`
+URL: `http://udacityfrontend.s3-website-us-east-1.amazonaws.com/`
